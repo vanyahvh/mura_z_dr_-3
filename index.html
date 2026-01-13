@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>міра втф з др</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<img src="rose.png" class="rose">
+
+<h1 class="title neon">міра втф з др</h1>
+
+<div class="gallery neon">
+  <img src="photos/1.jpg">
+  <img src="photos/2.jpg">
+  <img src="photos/3.jpg">
+</div>
+
+<p class="text neon">
+  може міра і не найлучша подружка но вона всігда оставалась з нами хоча іноді обіжалась іноді вона обіжала нас іноді била но завжди цінила нас ❤️
+</p>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+let balls = [];
+const COUNT = 120;
+
+for (let i = 0; i < COUNT; i++) {
+  balls.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 3 + 2,
+    s: Math.random() * 0.6 + 0.4
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  balls.forEach(b => {
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(255,105,180,0.9)";
+    ctx.fill();
+
+    b.y -= b.s;
+    if (b.y < -10) {
+      b.y = canvas.height + 10;
+      b.x = Math.random() * canvas.width;
+    }
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
