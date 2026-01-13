@@ -18,15 +18,6 @@ canvas {
   pointer-events: none;
 }
 
-.rose {
-  position: fixed;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 120px;
-  z-index: 3;
-}
-
 .title {
   margin-top: 40px;
   font-size: 48px;
@@ -64,3 +55,4 @@ canvas {
   padding: 15px 25px;
   box-shadow: 0 0 25px #ff69b4;
 }
+
